@@ -1,0 +1,89 @@
+$dark: #1C1C1C;
+$light: #D4D4D2;
+$white: #fff;
+$secondary: #505050;
+$buttonColorPrimary: #FF9500;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+body {
+    background-color: $dark;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    .calculator {
+        width: 300px;
+        height: 500px;
+        background: $dark;
+        .result {
+            height: 30%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding: 0 1em;
+            p {
+                font-size: 3em;
+                color: $light;
+            }
+        }
+        .buttons {
+            height: 70%;
+            display: flex;
+            flex-direction: column;
+            .button-group {
+                flex: 1;
+                display: flex;
+                .key {
+                    flex: 1;
+                    background-color: $secondary;
+                    color: $light;
+                    border: none;
+                    border-right: 1px solid $dark;
+                    border-bottom: 1px solid $dark;
+                    font-size: 1.5em;
+                    outline: none;
+                }
+                .key:focus {
+                    animation: touch 1000ms ease;
+                }
+                .light {
+                    background-color: $light;
+                    color: $dark;
+                }
+                .double {
+                    flex: 2;
+                    padding-right: 1px;
+                }
+                .primary {
+                    background-color: $buttonColorPrimary;
+                    color: $white;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 575px) {
+        .calculator {
+            max-width: 100%;
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+@keyframes touch {
+    from {
+        background-color: $light;
+    }
+    to {}
+}
